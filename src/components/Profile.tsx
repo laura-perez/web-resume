@@ -2,19 +2,24 @@ import { personalInfo } from '../data/profile';
 
 export default function Profile() {
   return (
-    <div className="profile-section">      {/* Top Section: Profile Picture, Username and Actions */}
-      <div className="flex items-start mb-6 space-x-3 sm:space-x-6">        {/* Profile Picture with Story Ring - Always on the left */}
-        <div className="story-ring flex-shrink-0">
-          <div className="story-inner">
-            <img 
-              src={personalInfo.profileImage} 
-              alt={personalInfo.name}
-              className="w-full h-full object-cover"
-            />
+    <div className="profile-section">
+      {/* Top Section: Profile Picture, Username and Actions */}
+      <div className="flex items-start mb-6 space-x-4 sm:space-x-6">
+        {/* Profile Picture with Story Ring - 1/3 of the width */}
+        <div className="w-1/3 flex justify-center">
+          <div className="story-ring">
+            <div className="story-inner">
+              <img 
+                src={personalInfo.profileImage} 
+                alt={personalInfo.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
-        {/* Username and Actions - Takes remaining space */}
-        <div className="flex-1 min-w-0">
+        
+        {/* Username and Actions - 2/3 of the width */}
+        <div className="w-2/3 min-w-0">
           <div className="flex flex-col space-y-3 mb-4">
             <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
               <div className="flex items-center space-x-2">
@@ -32,7 +37,7 @@ export default function Profile() {
                   Suivi(e)
                 </button>
                 <a 
-                  href={`mailto:${personalInfo.email}`}
+                  href="mailto:laura.perez.fr@gmail.com"
                   className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded transition-colors text-center"
                 >
                   Contacter
@@ -66,20 +71,22 @@ export default function Profile() {
           <div className="space-y-1 mb-4">
             <h2 className="font-semibold text-xs sm:text-sm text-ig-gray-800">{personalInfo.name}</h2>
             <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🧈 Bretonne pur beurre</span>
+              <span>🧠 En transition vers l'IA après 10 ans de dev .NET</span>
             </p>
             <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🏄‍♀️ {personalInfo.title}</span>
+              <span>💻 Développeuse .NET & React full remote</span>
             </p>
             <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>📺 </span>
-              <a href={`mailto:${personalInfo.email}`} className="text-blue-800 break-all">
-                {personalInfo.email}
+              <span>🛠️ Microservices, POC, archi moderne</span>
+            </p>
+            <p className="text-xs sm:text-sm text-ig-gray-800">
+              <span>📍 Passionnée, dynamique & toujours curieuse</span>
+            </p>
+            <p className="text-xs sm:text-sm text-ig-gray-800">
+              <span>📫 </span>
+              <a href="mailto:laura.perez.fr@gmail.com" className="text-blue-800 break-all">
+                laura.perez.fr@gmail.com
               </a>
-            </p>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🎙️ Podcast «{personalInfo.title}... </span>
-              <span className="text-blue-800">plus</span>
             </p>
             <p className="text-xs sm:text-sm text-ig-gray-800">
               <span>🔗 </span>

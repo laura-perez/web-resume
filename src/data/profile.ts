@@ -18,8 +18,8 @@ export interface PersonalInfo {
 
 export const personalInfo: PersonalInfo = {
   name: "Laura Perez",
-  title: "Développeuse .NET",
-  bio: "De retour en France après 5 ans en Australie où j'ai travaillé sur des projets CMS, je souhaite maintenant m'orienter vers le développement de microservices .NET. J'aime apprendre de nouvelles techs et faire du pair programming. De nature énergique, je me plais dans un environnement de travail dynamique. ✨",
+  title: "Développeuse .NET & IA",
+  bio: "En transition vers l'IA après 10 ans de développement .NET. Passionnée par les microservices, POC et architectures modernes. Développeuse full remote, dynamique et toujours curieuse d'apprendre de nouvelles technologies.",
   location: "Bayonne, France",
   email: "laura.perez.fr@gmail.com",
   phone: "06 33 41 00 45",
