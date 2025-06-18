@@ -90,3 +90,71 @@
 .text-shadow {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
+/* ChatBox overlay styles */
+.chat-overlay {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem; /* Default fallback */
+  z-index: 9999;
+  max-width: calc(100vw - 2rem); /* Ensure it doesn't exceed viewport */
+  animation: chatbox-slide-in 0.3s ease-out;
+}
+
+/* ChatBox animations */
+@keyframes chatbox-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chatbox-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+.chat-overlay.closing {
+  animation: chatbox-slide-out 0.2s ease-in forwards;
+}
+
+/* Responsive positioning for mobile */
+@media (max-width: 640px) {
+  .chat-overlay {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    max-width: calc(100vw - 1rem); /* Even tighter on mobile */
+  }
+}
+
+/* Ensure ChatBox appears above all content within the app container */
+.chat-overlay .bg-white {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  max-width: 100%; /* Inherit max-width from parent */
+  transition: all 0.2s ease;
+}
+
+/* ChatBox responsive width adjustments */
+@media (max-width: 640px) {
+  .chat-overlay .bg-white {
+    width: 280px; /* Slightly smaller on mobile */
+    max-width: calc(100vw - 1rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .chat-overlay .bg-white {
+    width: 260px; /* Even smaller on very small screens */
+    max-width: calc(100vw - 1rem);
+  }
+}

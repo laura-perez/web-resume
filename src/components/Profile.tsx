@@ -2,7 +2,11 @@ import { personalInfo, profileDescription, profileStats } from '../data/profile'
 import { highlightsData } from '../data/highlights';
 import HighlightCarousel from './HighlightCarousel';
 
-export default function Profile() {
+interface ProfileProps {
+  onOpenChat: () => void;
+}
+
+export default function Profile({ onOpenChat }: ProfileProps) {
   return (
     <div className="profile-section">      {/* Top Section: Profile Picture, Username and Actions */}
       <div id="profile-header" className="flex items-start mb-6 space-x-4 sm:space-x-6">
@@ -30,11 +34,13 @@ export default function Profile() {
                 <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-              </div>
-              
-              {/* Action Buttons */}
+              </div>              {/* Action Buttons */}
               <div className="flex space-x-2">                
-                <button className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" style={{backgroundColor: 'var(--retro-purple)'}}>
+                <button 
+                  onClick={onOpenChat}
+                  className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" 
+                  style={{backgroundColor: 'var(--retro-purple)'}}
+                >
                   Message
                 </button>
                 <button 
