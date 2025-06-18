@@ -20,22 +20,23 @@ export const highlightsData: Highlight[] = [
   {
     id: "ai",
     name: "IA",
-    thumbnail: "/src/assets/images/competences.jpg",
+    thumbnail: "/src/assets/images/highlights/IA/ia-slide-1.png",
     slides: [
       {
         id: "ai-1",
-        image: "/src/assets/images/competences.jpg",
-        title: "Formation IA & Machine Learning"
+        image: "/src/assets/images/highlights/IA/ia-slide-1.png"
       },
       {
-        id: "ai-2", 
-        image: "/src/assets/images/experiences.jpg",
-        title: "Projets IA en entreprise"
+        id: "ai-2",
+        image: "/src/assets/images/highlights/IA/ia-slide-2.png"
       },
       {
         id: "ai-3",
-        image: "/src/assets/images/formations.jpg",
-        title: "Certifications & Veille techno"
+        image: "/src/assets/images/highlights/IA/ia-slide-3.png"
+      },
+      {
+        id: "ai-4",
+        image: "/src/assets/images/highlights/IA/ia-slide-4.png"
       }
     ]
   },
