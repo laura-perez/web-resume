@@ -20,7 +20,7 @@
   height: 5rem;
   border-radius: 50%;
   padding: 0.125rem;
-  background: linear-gradient(45deg, var(--retro-pink) 0%, var(--retro-orange) 50%, var(--retro-yellow) 100%);
+  background: linear-gradient(45deg, var(--retro-purple) 0%, var(--retro-pink) 50%, var(--retro-yellow) 100%);
 }
 
 /* Larger profile picture on tablet and desktop */

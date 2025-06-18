@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { experiences } from '../data/experiences';
 import { formations } from '../data/formations';
 import { skillCategories } from '../data/skills';
-import { personalInfo } from '../data/profile';
+import { personalInfoComplete } from '../data/profile';
 import { useLockBodyScroll } from '../hooks';
 import type { PostData } from '../data/profile';
 
@@ -205,20 +205,19 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
         );
 
       case 'personal':
-        return (
-          <div className="p-6 h-full overflow-y-auto">
+        return (          <div className="p-6 h-full overflow-y-auto">
             <div className="text-center mb-6">
               <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <img src={personalInfo.profileImage} alt={personalInfo.name} className="w-full h-full object-cover" />
+                <img src={personalInfoComplete.profileImage} alt={personalInfoComplete.name} className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-semibold text-lg text-ig-gray-800">{personalInfo.name}</h3>
-              <p className="text-retro-purple">{personalInfo.title}</p>
+              <h3 className="font-semibold text-lg text-ig-gray-800">{personalInfoComplete.name}</h3>
+              <p className="text-retro-purple">{personalInfoComplete.title}</p>
             </div>
 
             <div className="mb-6">
               <h4 className="font-medium text-ig-gray-800 mb-3">🌟 Centres d'intérêt</h4>
               <div className="space-y-2">
-                {personalInfo.interests.map((interest, index) => (
+                {personalInfoComplete.interests.map((interest: string, index: number) => (
                   <div key={index} className="text-sm text-ig-gray-600 p-2 bg-ig-gray-50 rounded-lg">
                     {interest}
                   </div>
@@ -229,7 +228,7 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
             <div>
               <h4 className="font-medium text-ig-gray-800 mb-3">🗣️ Langues</h4>
               <div className="space-y-2">
-                {personalInfo.languages.map((lang, index) => (
+                {personalInfoComplete.languages.map((lang: { name: string; level: string }, index: number) => (
                   <div key={index} className="flex justify-between items-center p-2 bg-ig-gray-50 rounded-lg">
                     <span className="text-sm text-ig-gray-700">{lang.name}</span>
                     <span className="text-sm text-retro-purple font-medium">{lang.level}</span>
@@ -249,46 +248,44 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
               </div>
               <h3 className="font-semibold text-lg text-ig-gray-800">Restons en contact !</h3>
               <p className="text-sm text-ig-gray-500">N'hésitez pas à me contacter</p>
-            </div>
-
-            <div className="space-y-4">
-              <a href={`mailto:${personalInfo.email}`} className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
+            </div>            <div className="space-y-4">
+              <a href={`mailto:${personalInfoComplete.email}`} className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
                 <div className="w-10 h-10 bg-retro-purple rounded-lg flex items-center justify-center text-white">
                   📧
                 </div>
                 <div>
                   <p className="font-medium text-ig-gray-800">Email</p>
-                  <p className="text-sm text-ig-gray-600">{personalInfo.email}</p>
+                  <p className="text-sm text-ig-gray-600">{personalInfoComplete.email}</p>
                 </div>
               </a>
 
-              <a href={`tel:${personalInfo.phone}`} className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
+              <a href={`tel:${personalInfoComplete.phone}`} className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
                 <div className="w-10 h-10 bg-retro-green rounded-lg flex items-center justify-center text-white">
                   📞
                 </div>
                 <div>
                   <p className="font-medium text-ig-gray-800">Téléphone</p>
-                  <p className="text-sm text-ig-gray-600">{personalInfo.phone}</p>
+                  <p className="text-sm text-ig-gray-600">{personalInfoComplete.phone}</p>
                 </div>
               </a>
 
-              <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
+              <a href={`https://linkedin.com/in/${personalInfoComplete.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
                 <div className="w-10 h-10 bg-retro-blue rounded-lg flex items-center justify-center text-white">
                   💼
                 </div>
                 <div>
                   <p className="font-medium text-ig-gray-800">LinkedIn</p>
-                  <p className="text-sm text-ig-gray-600">{personalInfo.linkedin}</p>
+                  <p className="text-sm text-ig-gray-600">{personalInfoComplete.linkedin}</p>
                 </div>
               </a>
 
-              <a href={`https://github.com/${personalInfo.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
+              <a href={`https://github.com/${personalInfoComplete.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 p-3 bg-ig-gray-50 rounded-lg hover:bg-ig-gray-100 transition-colors">
                 <div className="w-10 h-10 bg-ig-gray-800 rounded-lg flex items-center justify-center text-white">
                   💻
                 </div>
                 <div>
                   <p className="font-medium text-ig-gray-800">GitHub</p>
-                  <p className="text-sm text-ig-gray-600">{personalInfo.github}</p>
+                  <p className="text-sm text-ig-gray-600">{personalInfoComplete.github}</p>
                 </div>
               </a>
             </div>

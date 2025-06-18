@@ -1,10 +1,9 @@
-import { personalInfo } from '../data/profile';
+import { personalInfo, profileDescription, profileStats } from '../data/profile';
 
 export default function Profile() {
   return (
-    <div className="profile-section">
-      {/* Top Section: Profile Picture, Username and Actions */}
-      <div className="flex items-start mb-6 space-x-4 sm:space-x-6">
+    <div className="profile-section">      {/* Top Section: Profile Picture, Username and Actions */}
+      <div id="profile-header" className="flex items-start mb-6 space-x-4 sm:space-x-6">
         {/* Profile Picture with Story Ring - 1/3 of the width */}
         <div className="w-1/3 flex justify-center">
           <div className="story-ring">
@@ -32,16 +31,19 @@ export default function Profile() {
               </div>
               
               {/* Action Buttons */}
-              <div className="flex space-x-2">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors">
-                  Suivi(e)
+              <div className="flex space-x-2">                
+                <button className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" style={{backgroundColor: 'var(--retro-purple)'}}>
+                  Message
                 </button>
-                <a 
-                  href="mailto:laura.perez.fr@gmail.com"
+                <button 
+                  onClick={() => {
+                    // Demande à l'utilisateur d'ajouter aux favoris
+                    alert('💜 Ajoutez cette page à vos favoris avec Ctrl+D (PC) ou Cmd+D (Mac) pour retrouver facilement le CV de Laura !');
+                  }}
                   className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded transition-colors text-center"
                 >
-                  Contacter
-                </a>
+                  ⭐ Favori
+                </button>
                 <button className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-3 rounded transition-colors">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
@@ -49,45 +51,37 @@ export default function Profile() {
                 </button>
               </div>
             </div>
-          </div>
-
-          {/* Stats - Below username */}
+          </div>          {/* Stats - Below username */}
           <div className="flex justify-start space-x-4 sm:space-x-8 mb-4">
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">6</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.publications}</div>
               <div className="text-xs sm:text-sm text-ig-gray-500">publications</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">1 M</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.followers}</div>
               <div className="text-xs sm:text-sm text-ig-gray-500">followers</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">312</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.following}</div>
               <div className="text-xs sm:text-sm text-ig-gray-500">suivi(e)s</div>
             </div>
-          </div>
-
-          {/* Profile Info - Below stats */}
-          <div className="space-y-1 mb-4">
+          </div>          {/* Profile Info - Below stats */}
+          <div className="profile-description space-y-1 mb-4">
             <h2 className="font-semibold text-xs sm:text-sm text-ig-gray-800">{personalInfo.name}</h2>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🧠 En transition vers l'IA après 10 ans de dev .NET</span>
-            </p>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>💻 Développeuse .NET & React full remote</span>
-            </p>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🛠️ Microservices, POC, archi moderne</span>
-            </p>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>📍 Passionnée, dynamique & toujours curieuse</span>
-            </p>
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>📫 </span>
-              <a href="mailto:laura.perez.fr@gmail.com" className="text-blue-800 break-all">
-                laura.perez.fr@gmail.com
-              </a>
-            </p>
+            {profileDescription.lines.map((line, index) => (
+              <p key={index} className="text-xs sm:text-sm text-ig-gray-800">
+                {line.includes('📫') ? (
+                  <span>
+                    <span>� </span>
+                    <a href="mailto:laura.perez.fr@gmail.com" className="text-blue-800 break-all">
+                      laura.perez.fr@gmail.com
+                    </a>
+                  </span>
+                ) : (
+                  <span>{line}</span>
+                )}
+              </p>
+            ))}
             <p className="text-xs sm:text-sm text-ig-gray-800">
               <span>🔗 </span>
               <a href={`https://${personalInfo.website}`} className="text-blue-800 break-all" target="_blank" rel="noopener noreferrer">
@@ -103,9 +97,8 @@ export default function Profile() {
       <div className="flex space-x-4 overflow-x-auto pb-2">
         <div className="flex flex-col items-center space-y-2 flex-shrink-0">
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5">
-            <div className="w-full h-full rounded-full border-2 border-white overflow-hidden">
-              <img 
-                src="/src/assets/perso.jpg" 
+            <div className="w-full h-full rounded-full border-2 border-white overflow-hidden">              <img 
+                src="/src/assets/images/perso.jpg" 
                 alt="À la une"
                 className="w-full h-full object-cover"
               />

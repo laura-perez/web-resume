@@ -1,14 +1,18 @@
 export interface PersonalInfo {
   name: string;
+  profileImage: string;
+  website: string;
+}
+
+export interface PersonalInfoComplete {
+  name: string;
   title: string;
-  bio: string;
-  location: string;
   email: string;
   phone: string;
-  website: string;
   linkedin: string;
   github: string;
   profileImage: string;
+  website: string;
   interests: string[];
   languages: Array<{
     name: string;
@@ -16,22 +20,36 @@ export interface PersonalInfo {
   }>;
 }
 
+export interface ProfileDescription {
+  lines: string[];
+}
+
+export interface ProfileStats {
+  publications: string;
+  followers: string;
+  following: string;
+}
+
 export const personalInfo: PersonalInfo = {
   name: "Laura Perez",
+  profileImage: "/src/assets/images/profile-pic.png",
+  website: "laura-perez.dev"
+};
+
+export const personalInfoComplete: PersonalInfoComplete = {
+  name: "Laura Perez",
   title: "Développeuse .NET & IA",
-  bio: "En transition vers l'IA après 10 ans de développement .NET. Passionnée par les microservices, POC et architectures modernes. Développeuse full remote, dynamique et toujours curieuse d'apprendre de nouvelles technologies.",
-  location: "Bayonne, France",
   email: "laura.perez.fr@gmail.com",
   phone: "06 33 41 00 45",
-  website: "laura-perez.dev",
   linkedin: "laura-perez-fr",
   github: "lauraperez-dev",
-  profileImage: "/src/assets/profile-pic.png",
+  profileImage: "/src/assets/images/profile-pic.png",
+  website: "laura-perez.dev",
   interests: [
     "💻 Microservices .NET",
-    "� Pair Programming", 
-    "� Nouvelles technologies",
-    "� Voyages (Australie)",
+    "🤝 Pair Programming", 
+    "🚀 Nouvelles technologies",
+    "🌏 Voyages (Australie)",
     "📚 Veille technologique",
     "☕ Coffee & Code"
   ],
@@ -39,6 +57,22 @@ export const personalInfo: PersonalInfo = {
     { name: "Français", level: "Bilingue" },
     { name: "Anglais", level: "Bilingue" }
   ]
+};
+
+export const profileDescription: ProfileDescription = {
+  lines: [
+    "🧠 En transition vers l'IA après 10 ans de dev .NET",
+    "💻 Développeuse .NET & React full remote",
+    "🛠️ Microservices, POC, archi moderne",
+    "📍 Passionnée, dynamique & toujours curieuse",
+    "📫 laura.perez.fr@gmail.com"
+  ]
+};
+
+export const profileStats: ProfileStats = {
+  publications: "6",
+  followers: "1 M",
+  following: "312"
 };
 
 export interface PostData {
@@ -51,58 +85,52 @@ export interface PostData {
   color: string;
 }
 
-export const postsData: PostData[] = [
-  {
+export const postsData: PostData[] = [  {
     id: "experiences",
     title: "Expériences",
     type: "experiences",
     icon: "💼",
-    image: "/src/assets/experiences.jpg",
+    image: "/src/assets/images/experiences.jpg",
     description: "Mon parcours professionnel",
     color: "from-retro-purple to-retro-blue"
-  },
-  {
+  },  {
     id: "formations", 
     title: "Formations",
     type: "formations",
     icon: "🎓",
-    image: "/src/assets/formations.jpg",
+    image: "/src/assets/images/formations.jpg",
     description: "Mon cursus académique",
     color: "from-retro-blue to-retro-cyan"
-  },
-  {
+  },  {
     id: "skills",
     title: "Compétences", 
     type: "skills",
     icon: "🛠️",
-    image: "/src/assets/competences.jpg",
+    image: "/src/assets/images/competences.jpg",
     description: "Mes technologies favorites",
     color: "from-retro-cyan to-retro-green"
-  },
-  {
+  },  {
     id: "personal",
     title: "Personnel",
     type: "personal", 
     icon: "🌟",
-    image: "/src/assets/perso.jpg",
+    image: "/src/assets/images/perso.jpg",
     description: "Mes passions et intérêts",
     color: "from-retro-green to-retro-yellow"
-  },
-  {
+  },  {
     id: "contact",
     title: "Contact",
     type: "contact",
     icon: "📱",
-    image: "/src/assets/contact.jpg", 
+    image: "/src/assets/images/contact.jpg", 
     description: "Restons en contact !",
     color: "from-retro-yellow to-retro-orange"
-  },
-  {
+  },  {
     id: "projects",
     title: "Projets",
     type: "experiences",
     icon: "🚀", 
-    image: "/src/assets/experiences.jpg",
+    image: "/src/assets/images/experiences.jpg",
     description: "Mes réalisations",
     color: "from-retro-orange to-retro-pink"
   }
