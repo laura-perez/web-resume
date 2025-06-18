@@ -106,3 +106,44 @@
     margin-top: 1.5rem;
   }
 }
+
+/* Highlights slideshow matching post-grid width */
+#highlights-slideshow .highlights-container {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  #highlights-slideshow .highlights-container {
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #highlights-slideshow .highlights-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Story modal container matching instagram-container width */
+.story-modal-container {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Desktop: 50% width like instagram-container */
+@media (min-width: 1024px) {
+  .story-modal-container {
+    max-width: 50%;
+    width: 50%;
+  }
+}
+
+/* Large desktop: max width constraint like instagram-container */
+@media (min-width: 1536px) {
+  .story-modal-container {
+    max-width: 800px;
+  }
+}

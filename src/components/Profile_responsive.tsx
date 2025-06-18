@@ -1,4 +1,5 @@
-import { personalInfo, personalInfoComplete, profileStats, highlightsData } from '../data/profile';
+import { personalInfo, personalInfoComplete, profileStats } from '../data/profile';
+import { highlightsData } from '../data/highlights';
 import HighlightCarousel from './HighlightCarousel';
 
 export default function Profile() {
