@@ -61,10 +61,10 @@ export const personalInfoComplete: PersonalInfoComplete = {
 
 export const profileDescription: ProfileDescription = {
   lines: [
-    "🧠 En transition vers l'IA après 10 ans de dev .NET",
-    "💻 Développeuse .NET & React full remote",
-    "🛠️ Microservices, POC, archi moderne",
-    "📍 Passionnée, dynamique & toujours curieuse",
+    "🔮 En transition vers l'IA après 10 ans de dev .NET",
+    "🌍 5 ans d'expérience à l'international - FR/EN-AU",
+    "🧠 Monte en puissance sur l'IA pour le développement",
+    "⚡ dev nouvelle génération : accéléré, amplifié, optimisé",
     "📫 laura.perez.fr@gmail.com"
   ]
 };
@@ -85,7 +85,8 @@ export interface PostData {
   color: string;
 }
 
-export const postsData: PostData[] = [  {
+export const postsData: PostData[] = [
+  {
     id: "experiences",
     title: "Expériences",
     type: "experiences",
@@ -93,7 +94,8 @@ export const postsData: PostData[] = [  {
     image: "/src/assets/images/experiences.jpg",
     description: "Mon parcours professionnel",
     color: "from-retro-purple to-retro-blue"
-  },  {
+  },
+  {
     id: "formations", 
     title: "Formations",
     type: "formations",
@@ -101,7 +103,8 @@ export const postsData: PostData[] = [  {
     image: "/src/assets/images/formations.jpg",
     description: "Mon cursus académique",
     color: "from-retro-blue to-retro-cyan"
-  },  {
+  },
+  {
     id: "skills",
     title: "Compétences", 
     type: "skills",
@@ -109,7 +112,8 @@ export const postsData: PostData[] = [  {
     image: "/src/assets/images/competences.jpg",
     description: "Mes technologies favorites",
     color: "from-retro-cyan to-retro-green"
-  },  {
+  },
+  {
     id: "personal",
     title: "Personnel",
     type: "personal", 
@@ -117,7 +121,8 @@ export const postsData: PostData[] = [  {
     image: "/src/assets/images/perso.jpg",
     description: "Mes passions et intérêts",
     color: "from-retro-green to-retro-yellow"
-  },  {
+  },
+  {
     id: "contact",
     title: "Contact",
     type: "contact",
@@ -125,7 +130,8 @@ export const postsData: PostData[] = [  {
     image: "/src/assets/images/contact.jpg", 
     description: "Restons en contact !",
     color: "from-retro-yellow to-retro-orange"
-  },  {
+  },
+  {
     id: "projects",
     title: "Projets",
     type: "experiences",
