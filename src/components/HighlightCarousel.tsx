@@ -71,12 +71,16 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
             </span>
           </div>
         ))}
-      </div>
-
-      {/* Story Modal */}
+      </div>      {/* Story Modal */}
       {selectedHighlight && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
-          <div className="relative w-full max-w-sm mx-4">
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"
+          onClick={closeHighlight}
+        >
+          <div 
+            className="relative w-full max-w-sm mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Header */}
             <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -91,11 +95,13 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                   {selectedHighlight.name}
                 </span>
               </div>
-              
-              {/* Close button */}
+                {/* Close button */}
               <button 
-                onClick={closeHighlight}
-                className="text-white hover:text-gray-300 transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeHighlight();
+                }}
+                className="text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black bg-opacity-30 hover:bg-opacity-50"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
