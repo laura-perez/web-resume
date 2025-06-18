@@ -1,4 +1,5 @@
-import { personalInfo, personalInfoComplete, profileStats } from '../data/profile';
+import { personalInfo, personalInfoComplete, profileStats, highlightsData } from '../data/profile';
+import HighlightCarousel from './HighlightCarousel';
 
 export default function Profile() {
   return (
@@ -80,22 +81,8 @@ export default function Profile() {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Story Highlights */}
-      <div className="flex space-x-4 overflow-x-auto pb-2">
-        <div className="flex flex-col items-center space-y-2 flex-shrink-0">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 p-0.5">
-            <div className="w-full h-full rounded-full border-2 border-white overflow-hidden">              <img 
-                src="/src/assets/images/perso.jpg" 
-                alt="À la une"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-          <span className="text-xs text-ig-gray-600">À la une</span>
-        </div>
-      </div>
+      </div>      {/* Story Highlights */}
+      <HighlightCarousel highlights={highlightsData} />
     </div>
   );
 }
