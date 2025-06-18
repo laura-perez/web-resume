@@ -21,16 +21,15 @@ export default function PostCard({ post, onClick }: PostCardProps) {
         {/* Gradient Overlay */}
         <div className={`absolute inset-0 bg-gradient-to-br ${post.color} opacity-70 group-hover:opacity-60 transition-opacity`} />
       </div>
-      
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-white p-2">
-        <div className="text-2xl mb-1">{post.icon}</div>
-        <h3 className="font-semibold text-sm text-center leading-tight">{post.title}</h3>
-        <p className="text-xs text-center opacity-90 mt-1">{post.description}</p>
-      </div>
-      
-      {/* Hover Effect */}
-      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100">
+        {/* Hover Effect */}
+      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
+        {/* Content - Icon and Title */}
+        <div className="flex flex-col items-center mb-4 text-white">
+          <div className="text-2xl mb-1">{post.icon}</div>
+          <h3 className="font-semibold text-sm text-center leading-tight">{post.title}</h3>
+        </div>
+        
+        {/* Social Icons */}
         <div className="flex space-x-4 text-white">
           <div className="flex items-center">
             <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
