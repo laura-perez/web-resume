@@ -56,15 +56,28 @@
   }
 }
 
-@layer components {
-  .instagram-container {
-    max-width: 28rem;
+@layer components {  .instagram-container {
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     min-height: 100vh;
   }
   
+  /* Desktop: 50% width */
+  @media (min-width: 1024px) {
+    .instagram-container {
+      max-width: 50%;
+      width: 50%;
+    }
+  }
+  
+  /* Large desktop: max width constraint */
+  @media (min-width: 1536px) {
+    .instagram-container {
+      max-width: 800px;
+    }
+  }
   .instagram-header {
     display: flex;
     align-items: center;
@@ -73,16 +86,55 @@
     border-bottom: 1px solid var(--ig-gray-200);
   }
   
+  /* Increased header padding on larger screens */
+  @media (min-width: 768px) {
+    .instagram-header {
+      padding: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .instagram-header {
+      padding: 1.5rem;
+    }
+  }
   .profile-section {
     padding: 1rem;
   }
   
+  /* Increased padding on larger screens */
+  @media (min-width: 768px) {
+    .profile-section {
+      padding: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .profile-section {
+      padding: 1.5rem;
+    }
+  }
   .story-ring {
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     padding: 0.125rem;
     background: linear-gradient(45deg, var(--retro-pink) 0%, var(--retro-orange) 50%, var(--retro-yellow) 100%);
+  }
+  
+  /* Larger profile picture on tablet and desktop */
+  @media (min-width: 768px) {
+    .story-ring {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .story-ring {
+      width: 8rem;
+      height: 8rem;
+    }
   }
   
   .story-inner {
@@ -92,12 +144,11 @@
     border: 2px solid white;
     overflow: hidden;
   }
-  
-  .post-grid {
+    .post-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.25rem;
-    padding: 0.25rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
   
   .post-card {
