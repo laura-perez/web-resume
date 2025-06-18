@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-instagram);
+  background-color: var(--ig-gray-50);
+  color: var(--ig-gray-800);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.instagram-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Desktop: 50% width */
+@media (min-width: 1024px) {
+  .instagram-container {
+    max-width: 50%;
+    width: 50%;
+  }
+}
+
+/* Large desktop: max width constraint */
+@media (min-width: 1536px) {
+  .instagram-container {
+    max-width: 800px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--ig-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--ig-gray-400);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ig-gray-500);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .instagram-container {
+    min-height: 100vh;
+  }
+}

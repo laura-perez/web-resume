@@ -1,0 +1,92 @@
+/* Animations */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Utility classes using custom properties */
+.text-retro-purple { color: var(--retro-purple); }
+.text-retro-pink { color: var(--retro-pink); }
+.text-retro-blue { color: var(--retro-blue); }
+.text-retro-cyan { color: var(--retro-cyan); }
+.text-retro-green { color: var(--retro-green); }
+.text-retro-yellow { color: var(--retro-yellow); }
+.text-retro-orange { color: var(--retro-orange); }
+
+.bg-retro-purple { background-color: var(--retro-purple); }
+.bg-retro-pink { background-color: var(--retro-pink); }
+.bg-retro-blue { background-color: var(--retro-blue); }
+.bg-retro-cyan { background-color: var(--retro-cyan); }
+.bg-retro-green { background-color: var(--retro-green); }
+.bg-retro-yellow { background-color: var(--retro-yellow); }
+.bg-retro-orange { background-color: var(--retro-orange); }
+
+.text-ig-gray-50 { color: var(--ig-gray-50); }
+.text-ig-gray-100 { color: var(--ig-gray-100); }
+.text-ig-gray-200 { color: var(--ig-gray-200); }
+.text-ig-gray-300 { color: var(--ig-gray-300); }
+.text-ig-gray-400 { color: var(--ig-gray-400); }
+.text-ig-gray-500 { color: var(--ig-gray-500); }
+.text-ig-gray-600 { color: var(--ig-gray-600); }
+.text-ig-gray-700 { color: var(--ig-gray-700); }
+.text-ig-gray-800 { color: var(--ig-gray-800); }
+.text-ig-gray-900 { color: var(--ig-gray-900); }
+
+.bg-ig-gray-50 { background-color: var(--ig-gray-50); }
+.bg-ig-gray-100 { background-color: var(--ig-gray-100); }
+.bg-ig-gray-200 { background-color: var(--ig-gray-200); }
+.bg-ig-gray-300 { background-color: var(--ig-gray-300); }
+.bg-ig-gray-400 { background-color: var(--ig-gray-400); }
+.bg-ig-gray-500 { background-color: var(--ig-gray-500); }
+.bg-ig-gray-600 { background-color: var(--ig-gray-600); }
+.bg-ig-gray-700 { background-color: var(--ig-gray-700); }
+.bg-ig-gray-800 { background-color: var(--ig-gray-800); }
+.bg-ig-gray-900 { background-color: var(--ig-gray-900); }
+
+.border-ig-gray-200 { border-color: var(--ig-gray-200); }
+.border-ig-gray-300 { border-color: var(--ig-gray-300); }
+
+.rounded-ig { border-radius: var(--radius-ig); }
+.rounded-ig-sm { border-radius: var(--radius-ig-sm); }
+
+.shadow-ig { box-shadow: var(--shadow-ig); }
+.shadow-ig-hover { box-shadow: var(--shadow-ig-hover); }
+.shadow-retro { box-shadow: var(--shadow-retro); }
+
+/* Gradient backgrounds */
+.bg-ig-gradient { background: var(--ig-gradient); }
+.bg-retro-gradient { background: var(--retro-gradient); }
+.bg-story-gradient { background: var(--story-gradient); }
+.bg-retro-pastel { background: var(--retro-pastel); }
+.bg-pastel-gradient { background: var(--pastel-gradient); }
+.bg-purple-pastel-gradient { background: var(--purple-pastel-gradient); }
+
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,39 @@
+.instagram-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--ig-gray-200);
+  background: var(--purple-pastel-gradient);
+  position: relative;
+}
+
+.instagram-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.instagram-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Increased header padding on larger screens */
+@media (min-width: 768px) {
+  .instagram-header {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .instagram-header {
+    padding: 1.5rem;
+  }
+}

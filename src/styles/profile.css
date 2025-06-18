@@ -1,0 +1,108 @@
+.profile-section {
+  padding: 1rem;
+}
+
+/* Increased padding on larger screens */
+@media (min-width: 768px) {
+  .profile-section {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-section {
+    padding: 1.5rem;
+  }
+}
+
+.story-ring {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  padding: 0.125rem;
+  background: linear-gradient(45deg, var(--retro-pink) 0%, var(--retro-orange) 50%, var(--retro-yellow) 100%);
+}
+
+/* Larger profile picture on tablet and desktop */
+@media (min-width: 640px) {
+  .story-ring {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .story-ring {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-ring {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+.story-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.story-ring:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Responsive spacing utilities */
+.profile-responsive-spacing {
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .profile-responsive-spacing {
+    margin-left: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-responsive-spacing {
+    margin-left: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-responsive-spacing {
+    margin-left: 3rem;
+  }
+}
+
+.profile-picture-responsive-margin {
+  margin-left: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .profile-picture-responsive-margin {
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-picture-responsive-margin {
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile-picture-responsive-margin {
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+  }
+}
