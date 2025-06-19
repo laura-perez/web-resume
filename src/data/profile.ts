@@ -62,10 +62,9 @@ export const personalInfoComplete: PersonalInfoComplete = {
 export const profileDescription: ProfileDescription = {
   lines: [
     "🔮 En transition vers l'IA après 10 ans de dev .NET",
-    "🌍 5 ans d'expérience à l'international - FR/EN-AU",
+    "🌍 5 ans d'expérience à l'international - FR/EN",
     "🧠 Monte en puissance sur l'IA pour le développement",
-    "⚡ dev nouvelle génération : accéléré, amplifié, optimisé",
-    "📫 laura.perez.fr@gmail.com"
+    "⚡ Dev nouvelle génération : accéléré, amplifié, optimisé"
   ]
 };
 

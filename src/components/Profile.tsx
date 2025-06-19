@@ -90,13 +90,6 @@ export default function Profile({ onOpenChat }: ProfileProps) {
                 )}
               </p>
             ))}
-            <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>🔗 </span>
-              <a href={`https://${personalInfo.website}`} className="text-blue-800 break-all" target="_blank" rel="noopener noreferrer">
-                {personalInfo.website}
-              </a>
-              <span className="text-blue-800"> et 1 de plus</span>
-            </p>
           </div>
         </div>
       </div>      {/* Story Highlights */}

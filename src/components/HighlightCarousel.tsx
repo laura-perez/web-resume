@@ -45,7 +45,7 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                 className="flex flex-col items-center space-y-2 flex-shrink-0 cursor-pointer"
                 onClick={() => openHighlight(highlight)}
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-retro-purple via-retro-pink to-retro-yellow p-0.5">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-retro-purple via-retro-pink to-retro-yellow p-0.5">
                   <div className="w-full h-full rounded-full border-2 border-white overflow-hidden">
                     <img 
                       src={highlight.thumbnail} 
@@ -55,7 +55,6 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                   </div>
                 </div>
                 <span className="text-xs text-ig-gray-600 max-w-16 text-center truncate">
-                  {highlight.name}
                 </span>
               </div>
             ))}
@@ -81,9 +80,6 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="text-white text-sm font-medium">
-                  {selectedHighlight.name}
-                </span>
               </div>
                 {/* Close button */}
               <button 
