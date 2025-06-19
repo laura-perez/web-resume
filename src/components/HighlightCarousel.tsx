@@ -55,6 +55,7 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                   </div>
                 </div>
                 <span className="text-xs text-ig-gray-600 max-w-16 text-center truncate">
+                  {highlight.name}
                 </span>
               </div>
             ))}

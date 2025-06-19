@@ -86,58 +86,58 @@ export interface PostData {
 
 export const postsData: PostData[] = [
   {
-    id: "experiences",
-    title: "Expériences",
-    type: "experiences",
-    icon: "💼",
-    image: "/src/assets/images/experiences.jpg",
-    description: "Mon parcours professionnel",
-    color: "from-retro-purple to-retro-blue"
+    id: "personal",
+    title: "Profil",
+    type: "personal", 
+    icon: "👤",
+    image: "/src/assets/images/posts/post-1-profile.png",
+    description: "Mon profil personnel",
+    color: "from-retro-green to-retro-yellow"
   },
   {
-    id: "formations", 
-    title: "Formations",
-    type: "formations",
-    icon: "🎓",
-    image: "/src/assets/images/formations.jpg",
-    description: "Mon cursus académique",
-    color: "from-retro-blue to-retro-cyan"
+    id: "experiences",
+    title: "Expérience",
+    type: "experiences",
+    icon: "💼",
+    image: "/src/assets/images/posts/post-2-experience.png",
+    description: "Mon parcours professionnel",
+    color: "from-retro-purple to-retro-blue"
   },
   {
     id: "skills",
     title: "Compétences", 
     type: "skills",
     icon: "🛠️",
-    image: "/src/assets/images/competences.jpg",
+    image: "/src/assets/images/posts/post-3-skills.png",
     description: "Mes technologies favorites",
     color: "from-retro-cyan to-retro-green"
   },
   {
-    id: "personal",
-    title: "Personnel",
-    type: "personal", 
+    id: "formations", 
+    title: "Formation",
+    type: "formations",
+    icon: "🎓",
+    image: "/src/assets/images/posts/post-4-education.png",
+    description: "Mon cursus académique",
+    color: "from-retro-blue to-retro-cyan"
+  },
+  {
+    id: "softskills",
+    title: "Soft Skills",
+    type: "personal",
     icon: "🌟",
-    image: "/src/assets/images/perso.jpg",
-    description: "Mes passions et intérêts",
-    color: "from-retro-green to-retro-yellow"
+    image: "/src/assets/images/posts/post-5-softskills.png",
+    description: "Mes qualités humaines",
+    color: "from-retro-pink to-retro-purple"
   },
   {
     id: "contact",
     title: "Contact",
     type: "contact",
     icon: "📱",
-    image: "/src/assets/images/contact.jpg", 
+    image: "/src/assets/images/posts/post-6-contact.png", 
     description: "Restons en contact !",
     color: "from-retro-yellow to-retro-orange"
-  },
-  {
-    id: "projects",
-    title: "Projets",
-    type: "experiences",
-    icon: "🚀", 
-    image: "/src/assets/images/experiences.jpg",
-    description: "Mes réalisations",
-    color: "from-retro-orange to-retro-pink"
   }
 ];
 

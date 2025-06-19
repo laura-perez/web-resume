@@ -39,5 +39,28 @@ export const highlightsData: Highlight[] = [
         image: "/src/assets/images/highlights/IA/ia-slide-4.jpg"
       }
     ]
+  },
+  {
+    id: "Perso",
+    name: "perso",
+    thumbnail: "/src/assets/images/highlights/perso/perso-thumbnail.png",
+    slides: [
+      {
+        id: "perso-1",
+        image: "/src/assets/images/highlights/perso/slide-1-volt.png"
+      },
+      {
+        id: "perso-2",
+        image: "/src/assets/images/highlights/perso/slide-2-surf.png"
+      },
+      {
+        id: "perso-3",
+        image: "/src/assets/images/highlights/perso/slide-3-diy.png"
+      },
+      {
+        id: "perso-4",
+        image: "/src/assets/images/highlights/perso/slide-4-sunset.png"
+      }
+    ]
   }
 ];
