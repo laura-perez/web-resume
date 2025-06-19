@@ -62,32 +62,23 @@ export default function Profile({ onOpenChat }: ProfileProps) {
           </div>          {/* Stats - Below username */}
           <div className="flex justify-start space-x-4 sm:space-x-8 mb-4">
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.publications}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">publications</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.experience}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">expérience</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.followers}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">followers</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.international}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">international</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.following}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">suivi(e)s</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.technologies}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">technologies</div>
             </div>
-          </div>          {/* Profile Info - Below stats */}
+          </div>{/* Profile Info - Below stats */}
           <div className="profile-description space-y-1 mb-4">
             <h2 className="font-semibold text-xs sm:text-sm text-ig-gray-800">{personalInfo.name}</h2>
             {profileDescription.lines.map((line, index) => (
               <p key={index} className="text-xs sm:text-sm text-ig-gray-800">
-                {line.includes('📫') ? (
-                  <span>
-                    <span>� </span>
-                    <a href="mailto:laura.perez.fr@gmail.com" className="text-blue-800 break-all">
-                      laura.perez.fr@gmail.com
-                    </a>
-                  </span>
-                ) : (
-                  <span>{line}</span>
-                )}
+                <span>{line}</span>
               </p>
             ))}
           </div>

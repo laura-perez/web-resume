@@ -2,7 +2,11 @@ import { personalInfo, personalInfoComplete, profileStats } from '../data/profil
 import { highlightsData } from '../data/highlights';
 import HighlightCarousel from './HighlightCarousel';
 
-export default function Profile() {
+interface ProfileProps {
+  onOpenChat: () => void;
+}
+
+export default function Profile({ onOpenChat }: ProfileProps) {
   return (
     <div className="profile-section">
       {/* Top Section: Profile Picture, Username and Actions */}
@@ -29,11 +33,15 @@ export default function Profile() {
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            
-            {/* Action Buttons */}
-            <div className="flex space-x-2">              <button className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" style={{backgroundColor: 'var(--retro-purple)'}}>
+              {/* Action Buttons */}
+            <div className="flex space-x-2">              
+              <button 
+                onClick={onOpenChat}
+                className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" 
+                style={{backgroundColor: 'var(--retro-purple)'}}
+              >
                 Message
-              </button>              <button 
+              </button><button 
                 onClick={() => {
                   // Demande à l'utilisateur d'ajouter aux favoris
                   alert('💜 Ajoutez cette page à vos favoris avec Ctrl+D (PC) ou Cmd+D (Mac) pour retrouver facilement le CV de Laura !');
@@ -51,16 +59,16 @@ export default function Profile() {
           </div>          {/* Stats - Below username */}
           <div className="flex justify-start space-x-4 sm:space-x-8 mb-4">
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.publications}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">publications</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.experience}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">ans expérience</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.followers}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">followers</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.international}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">ans international</div>
             </div>
             <div className="text-center">
-              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.following}</div>
-              <div className="text-xs sm:text-sm text-ig-gray-500">suivi(e)s</div>
+              <div className="font-semibold text-sm sm:text-base text-ig-gray-800">{profileStats.technologies}</div>
+              <div className="text-xs sm:text-sm text-ig-gray-500">technologies</div>
             </div>
           </div>          {/* Profile Info - Below stats */}
           <div className="profile-description space-y-1 mb-4">
@@ -69,7 +77,7 @@ export default function Profile() {
               <span>{personalInfoComplete.title}</span>
             </p>
             <p className="text-xs sm:text-sm text-ig-gray-800">
-              <span>� </span>
+              <span>📫 </span>
               <a href={`mailto:${personalInfoComplete.email}`} className="text-blue-800 break-all">
                 {personalInfoComplete.email}
               </a>

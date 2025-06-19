@@ -25,9 +25,9 @@ export interface ProfileDescription {
 }
 
 export interface ProfileStats {
-  publications: string;
-  followers: string;
-  following: string;
+  experience: string;
+  international: string;
+  technologies: string;
 }
 
 export const personalInfo: PersonalInfo = {
@@ -69,9 +69,9 @@ export const profileDescription: ProfileDescription = {
 };
 
 export const profileStats: ProfileStats = {
-  publications: "6",
-  followers: "1 M",
-  following: "312"
+  experience: "10+ ans",
+  international: "5 ans",
+  technologies: "15+"
 };
 
 export interface PostData {
