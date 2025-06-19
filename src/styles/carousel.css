@@ -10,19 +10,60 @@
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.3s ease-out;
+  padding: 1rem;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 40rem;
+  padding: 0 1rem;
 }
 
 .carousel-content {
   width: 100%;
   max-width: 28rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
   background-color: white;
   border-radius: var(--radius-ig);
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   max-height: 80vh;
   animation: modalSlideIn 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-nav-left {
+  left: -2rem;
+}
+
+.carousel-nav-right {
+  right: -2rem;
+}
+
+.carousel-internal-nav {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
 }
 
 .carousel-header {
@@ -79,9 +120,83 @@
 }
 
 /* Mobile carousel optimizations */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 1rem;
+    max-width: 100%;
+    justify-content: center;
+  }
+  
   .carousel-content {
-    margin: 1rem;
+    width: 100%;
+    max-width: calc(100vw - 6rem); /* Leave space for arrows */
+    margin: 0 auto;
+  }
+  
+  .carousel-nav-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  
+  .carousel-nav-left {
+    left: -1.25rem;
+  }
+  
+  .carousel-nav-right {
+    right: -1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-container {
+    padding: 0 0.5rem;
+    max-width: 100%;
+    justify-content: center;
+  }
+  
+  .carousel-content {
     max-height: 85vh;
+    width: 100%;
+    max-width: calc(100vw - 4rem); /* Smaller margin for better fit */
+    margin: 0 auto;
+  }
+  
+  .carousel-nav-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+  }
+  
+  .carousel-nav-left {
+    left: -1rem;
+  }
+  
+  .carousel-nav-right {
+    right: -1rem;
+  }
+}
+
+/* For very small screens, hide external arrows and show internal navigation */
+@media (max-width: 520px) {
+  .carousel-container {
+    padding: 0 1rem;
+    width: 100%;
+  }
+  
+  .carousel-content {
+    width: 100%;
+    max-width: calc(100vw - 2rem); /* Full width minus padding */
+    margin: 0 auto;
+  }
+  
+  .carousel-nav-button {
+    display: none;
+  }
+  
+  .carousel-internal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -156,3 +156,62 @@
     max-width: 800px;
   }
 }
+
+/* Action buttons responsive fixes */
+.profile-section button {
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+/* Fix for button spacing in medium-large screens (1024px-1243px) */
+@media (min-width: 1024px) and (max-width: 1243px) {
+  .profile-section .flex.space-x-2 {
+    gap: 0.5rem; /* Reduce gap between buttons */
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .profile-section button {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem; /* Reduce padding */
+    min-width: auto;
+    flex-shrink: 0;
+  }
+  
+  /* Ensure flex container stays compact */
+  .profile-section .flex.flex-col.sm\\:flex-row.sm\\:items-center {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  
+  /* Keep username and buttons on same line when possible */
+  .profile-section .flex.items-center.space-x-2 {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  /* Ensure the action buttons container doesn't overflow */
+  .profile-section .flex.space-x-2 {
+    max-width: 100%;
+    overflow: visible;
+  }
+}
+
+/* Ensure buttons don't get too cramped on smaller screens within this range */
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .profile-section .flex.space-x-2 {
+    gap: 0.375rem; /* Tighter spacing */
+  }
+  
+  .profile-section button {
+    font-size: 0.8125rem;
+    padding: 0.375rem 0.625rem; /* Slightly smaller padding */
+  }
+  
+  /* Ensure menu button (3-dot) stays compact */
+  .profile-section button:last-child {
+    padding: 0.375rem 0.5rem;
+    min-width: 2rem;
+  }
+}

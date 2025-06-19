@@ -34,23 +34,21 @@ export default function Profile({ onOpenChat }: ProfileProps) {
               </svg>
             </div>
               {/* Action Buttons */}
-            <div className="flex space-x-2">              
-              <button 
+            <div className="flex space-x-2">                <button 
                 onClick={onOpenChat}
-                className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro" 
+                className="bg-retro-purple hover:bg-purple-600 text-white text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded text-center transition-colors shadow-retro cursor-pointer" 
                 style={{backgroundColor: 'var(--retro-purple)'}}
               >
                 Message
-              </button><button 
+              </button>              <button 
                 onClick={() => {
-                  // Demande à l'utilisateur d'ajouter aux favoris
-                  alert('💜 Ajoutez cette page à vos favoris avec Ctrl+D (PC) ou Cmd+D (Mac) pour retrouver facilement le CV de Laura !');
+                  window.open('https://www.linkedin.com/in/laura-perez-fr/', '_blank', 'noopener,noreferrer');
                 }}
-                className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded transition-colors text-center"
+                className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-3 sm:px-4 rounded transition-colors text-center cursor-pointer"
               >
-                ⭐ Favori
+                💼 LinkedIn
               </button>
-              <button className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-3 rounded transition-colors">
+              <button className="bg-ig-gray-200 hover:bg-ig-gray-300 text-ig-gray-800 text-xs sm:text-sm font-medium py-1.5 px-2 sm:px-3 rounded transition-colors cursor-pointer">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                 </svg>

@@ -13,6 +13,8 @@ interface CarouselStoryProps {
 
 export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   // Lock body scroll when modal is open
   useLockBodyScroll(true);
@@ -44,13 +46,37 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
 
   const slides = getSlides();
   const totalSlides = slides.length;
-
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(0); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && totalSlides > 1) {
+      nextSlide();
+    }
+    if (isRightSwipe && totalSlides > 1) {
+      prevSlide();
+    }
   };
 
   const renderSlideContent = (slideIndex: number) => {
@@ -296,44 +322,61 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
         return null;
     }
   };
-
   return (
     <div className="carousel-overlay" onClick={onClose}>
-      <div className="carousel-content" onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
-        <div className="carousel-header">
-          <div className="flex items-center space-x-3">
-            <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${post.color} flex items-center justify-center text-white text-sm`}>
-              {post.icon}
-            </div>
-            <h2 className="font-semibold text-ig-gray-800">{post.title}</h2>
-          </div>
-          <button onClick={onClose} className="carousel-close">
-            ×
+      <div className="carousel-container relative flex items-center justify-center">
+        {/* Left Navigation Arrow */}
+        {totalSlides > 1 && (
+          <button 
+            onClick={prevSlide}
+            className="carousel-nav-button carousel-nav-left bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all z-10"
+          >
+            ←
           </button>
-        </div>
+        )}
 
-        {/* Content with Navigation */}
-        <div className="flex-1 relative overflow-hidden">
-          {renderSlideContent(currentSlide)}
-          
-          {/* Navigation */}
-          {totalSlides > 1 && (
-            <>
-              <button 
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all"
-              >
-                ←
-              </button>
-              <button 
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all"
-              >
-                →
-              </button>
-              
-              {/* Pagination */}
+        <div 
+          className="carousel-content" 
+          onClick={(e) => e.stopPropagation()}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Header */}
+          <div className="carousel-header">
+            <div className="flex items-center space-x-3">
+              <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${post.color} flex items-center justify-center text-white text-sm`}>
+                {post.icon}
+              </div>
+              <h2 className="font-semibold text-ig-gray-800">{post.title}</h2>
+            </div>
+            <button onClick={onClose} className="carousel-close">
+              ×
+            </button>
+          </div>          {/* Content */}
+          <div className="flex-1 relative overflow-hidden">
+            {renderSlideContent(currentSlide)}
+            
+            {/* Internal Navigation for Mobile (fallback for very small screens) */}
+            {totalSlides > 1 && (
+              <>
+                <button 
+                  onClick={prevSlide}
+                  className="carousel-internal-nav carousel-internal-left absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all text-sm"
+                >
+                  ←
+                </button>
+                <button 
+                  onClick={nextSlide}
+                  className="carousel-internal-nav carousel-internal-right absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all text-sm"
+                >
+                  →
+                </button>
+              </>
+            )}
+            
+            {/* Pagination */}
+            {totalSlides > 1 && (
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                 {Array.from({ length: totalSlides }).map((_, index) => (
                   <button
@@ -345,9 +388,19 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
                   />
                 ))}
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
+
+        {/* Right Navigation Arrow */}
+        {totalSlides > 1 && (
+          <button 
+            onClick={nextSlide}
+            className="carousel-nav-button carousel-nav-right bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all z-10"
+          >
+            →
+          </button>
+        )}
       </div>
     </div>
   );
