@@ -9,7 +9,7 @@ interface ProfileProps {
 export default function Profile({ onOpenChat }: ProfileProps) {
   return (
     <div className="profile-section">      {/* Top Section: Profile Picture, Username and Actions */}
-      <div id="profile-header" className="flex items-start mb-6 space-x-4 sm:space-x-6">
+      <div id="profile-header" className="flex items-start mb-2 space-x-4 sm:space-x-6">
         {/* Profile Picture with Story Ring - 1/3 of the width */}
         <div className="w-1/3 flex justify-center">
           <div className="story-ring">

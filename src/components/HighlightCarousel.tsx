@@ -34,18 +34,17 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
   const goToSlide = (index: number) => {
     setCurrentSlideIndex(index);
   };  return (
-    <>
-      {/* Highlight Bubbles */}
+    <>      {/* Highlight Bubbles */}
       <div id="highlights-slideshow" className="w-full">
         <div className="highlights-container">
-          <div className="flex space-x-4 overflow-x-auto pb-2">
+          <div className="flex space-x-3 overflow-x-auto">
             {highlights.map((highlight) => (
               <div 
                 key={highlight.id}
-                className="flex flex-col items-center space-y-2 flex-shrink-0 cursor-pointer"
+                className="flex flex-col items-center space-y-1 flex-shrink-0 cursor-pointer"
                 onClick={() => openHighlight(highlight)}
               >
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-retro-purple via-retro-pink to-retro-yellow p-0.5">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-retro-purple via-retro-pink to-retro-yellow p-0.5">
                   <div className="w-full h-full rounded-full border-2 border-white overflow-hidden">
                     <img 
                       src={highlight.thumbnail} 
@@ -55,12 +54,13 @@ export default function HighlightCarousel({ highlights }: HighlightCarouselProps
                   </div>
                 </div>
                 <span className="text-xs text-ig-gray-600 max-w-16 text-center truncate">
+                  {highlight.name}
                 </span>
               </div>
             ))}
           </div>
         </div>
-      </div>      {/* Story Modal */}
+      </div>{/* Story Modal */}
       {selectedHighlight && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center"

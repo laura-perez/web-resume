@@ -1,17 +1,17 @@
 .profile-section {
-  padding: 1rem;
+  padding: 1rem 1rem 0.25rem 1rem; /* Minimal bottom padding */
 }
 
 /* Increased padding on larger screens */
 @media (min-width: 768px) {
   .profile-section {
-    padding: 1.25rem;
+    padding: 1.25rem 1.25rem 0.5rem 1.25rem; /* Minimal bottom padding */
   }
 }
 
 @media (min-width: 1024px) {
   .profile-section {
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0.75rem 1.5rem; /* Minimal bottom padding */
   }
 }
 
@@ -108,15 +108,23 @@
 }
 
 /* Highlights slideshow matching post-grid width */
+#highlights-slideshow {
+  margin-bottom: 0.25rem; /* Minimal spacing to post grid */
+  margin-top: 0; /* No top margin */
+}
+
 #highlights-slideshow .highlights-container {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  padding-top: 0;
+  padding-bottom: 0.25rem; /* Minimal bottom padding */
 }
 
 @media (min-width: 640px) {
   #highlights-slideshow .highlights-container {
     padding-left: 0.375rem;
     padding-right: 0.375rem;
+    padding-bottom: 0.375rem;
   }
 }
 
@@ -124,6 +132,7 @@
   #highlights-slideshow .highlights-container {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }
 
