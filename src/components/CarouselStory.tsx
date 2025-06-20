@@ -324,11 +324,13 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
   };
   return (
     <div className="carousel-overlay" onClick={onClose}>
-      <div className="carousel-container relative flex items-center justify-center">
-        {/* Left Navigation Arrow */}
+      <div className="carousel-container relative flex items-center justify-center">        {/* Left Navigation Arrow */}
         {totalSlides > 1 && (
           <button 
-            onClick={prevSlide}
+            onClick={(e) => {
+              e.stopPropagation();
+              prevSlide();
+            }}
             className="carousel-nav-button carousel-nav-left bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all z-10"
           >
             ←
@@ -356,18 +358,23 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
           </div>          {/* Content */}
           <div className="flex-1 relative overflow-hidden">
             {renderSlideContent(currentSlide)}
-            
-            {/* Internal Navigation for Mobile (fallback for very small screens) */}
+              {/* Internal Navigation for Mobile (fallback for very small screens) */}
             {totalSlides > 1 && (
               <>
                 <button 
-                  onClick={prevSlide}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                  }}
                   className="carousel-internal-nav carousel-internal-left absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all text-sm"
                 >
                   ←
                 </button>
                 <button 
-                  onClick={nextSlide}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                  }}
                   className="carousel-internal-nav carousel-internal-right absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full transition-all text-sm"
                 >
                   →
@@ -390,12 +397,13 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
               </div>
             )}
           </div>
-        </div>
-
-        {/* Right Navigation Arrow */}
+        </div>        {/* Right Navigation Arrow */}
         {totalSlides > 1 && (
           <button 
-            onClick={nextSlide}
+            onClick={(e) => {
+              e.stopPropagation();
+              nextSlide();
+            }}
             className="carousel-nav-button carousel-nav-right bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-3 rounded-full transition-all z-10"
           >
             →
