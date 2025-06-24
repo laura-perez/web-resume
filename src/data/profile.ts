@@ -77,7 +77,7 @@ export const profileStats: ProfileStats = {
 export interface PostData {
   id: string;
   title: string;
-  type: 'experiences' | 'formations' | 'skills' | 'personal' | 'contact';
+  type: 'experiences' | 'formations' | 'skills' | 'personal' | 'contact' | 'softskills';
   icon: string;
   image: string;
   description: string;
@@ -120,11 +120,10 @@ export const postsData: PostData[] = [
     image: "/src/assets/images/posts/post-4-education.png",
     description: "Mon cursus académique",
     color: "from-retro-blue to-retro-cyan"
-  },
-  {
+  },  {
     id: "softskills",
     title: "Soft Skills",
-    type: "personal",
+    type: "softskills",
     icon: "🌟",
     image: "/src/assets/images/posts/post-5-softskills.png",
     description: "Mes qualités humaines",

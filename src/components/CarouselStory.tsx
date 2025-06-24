@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { experiences } from '../data/experiences';
 import { formations } from '../data/formations';
 import { skillCategories } from '../data/skills';
+import { softSkills } from '../data/softSkills';
 import { personalInfoComplete } from '../data/profile';
 import { useLockBodyScroll } from '../hooks';
 import type { PostData } from '../data/profile';
@@ -30,7 +31,6 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
   }, [onClose]);
-
   const getSlides = () => {
     switch (post.type) {
       case 'experiences':
@@ -39,6 +39,8 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
         return formations;
       case 'skills':
         return skillCategories;
+      case 'softskills':
+        return softSkills;
       default:
         return [{ id: 'single', title: post.title }];
     }
@@ -205,13 +207,11 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
 
             <div className="space-y-4">
               {category.skills.map((skill) => (
-                <div key={skill.id} className="bg-ig-gray-50 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
+                <div key={skill.id} className="bg-ig-gray-50 rounded-lg p-4">                  <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
                       <span className="text-lg">{skill.icon}</span>
                       <h4 className="font-medium text-ig-gray-800">{skill.name}</h4>
                     </div>
-                    <span className="text-sm text-ig-gray-500">{skill.experience}</span>
                   </div>
                   
                   {/* Skill Level */}
@@ -226,6 +226,39 @@ export default function CarouselStory({ post, onClose }: CarouselStoryProps) {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>        );
+
+      case 'softskills':
+        const softSkill = softSkills[slideIndex];
+        return (
+          <div className="p-6 h-full overflow-y-auto">            <div className="text-center mb-6">
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${softSkill.color} flex items-center justify-center text-white text-3xl`}>
+                {softSkill.icon}
+              </div>
+              <h3 className="font-semibold text-xl text-ig-gray-800">{softSkill.name}</h3>
+            </div>{softSkill.description && (
+              <div className="mb-6">
+                <p className="text-center text-ig-gray-600 leading-relaxed">
+                  {softSkill.description}
+                </p>
+              </div>
+            )}            {/* Skill Level Visual - Full colored progress bar */}
+            <div className="mb-6">
+              <div className="flex justify-center">
+                <div className="w-full max-w-xs bg-ig-gray-200 rounded-full h-3">
+                  <div 
+                    className={`bg-gradient-to-r ${softSkill.color} h-3 rounded-full w-full transition-all duration-500`}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Message about professional DNA */}
+            <div className="text-center">
+              <p className="text-xs text-ig-gray-500">
+                Cette qualité fait partie de mon ADN professionnel
+              </p>
             </div>
           </div>
         );
