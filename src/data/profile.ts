@@ -63,8 +63,7 @@ export const profileDescription: ProfileDescription = {
   lines: [
     "🔮 En transition vers l'IA après 10 ans de dev .NET",
     "🌍 5 ans d'expérience à l'international - FR/EN",
-    "🧠 Monte en puissance sur l'IA pour le développement",
-    "⚡ Dev nouvelle génération : accéléré, amplifié, optimisé"
+    "🧠 Monte en puissance sur l'IA pour le développement"
   ]
 };
 
